@@ -44,6 +44,7 @@ def main():
         c['target'] = ":".join(config['main']['remote'].split(':')[1:])
     else:
         c['fulltarget'] = c['target'] = c['local'] + '..'
+    c['fulltarget'] = os.path.relpath(c['fulltarget'])
 
     sparsefilters = config["main"].get('sparsefilters')
     if sparsefilters:
